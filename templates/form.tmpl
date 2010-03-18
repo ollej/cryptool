@@ -1,0 +1,41 @@
+<div class="formcontent">
+<form id="encoderform" action="" type="get">
+<h1>Cryptool</h1>
+
+<div style="float: left; padding-right: 20px;">
+<h2><?php echo $lang->str( "Data to encode" ); ?></h2>
+<textarea id="data" name="data" cols="60" rows="10" class="forminput"><?php echo $vars['data']; ?></textarea><br />
+
+<h2><?php echo $lang->str( "Data encoded in type: " ); ?><?php echo $lang->str( $vars['type'] ); ?></h2>
+<textarea id="encoded" name="encoded" cols="60" rows="10" class="forminput"><?php echo htmlspecialchars($vars['encoded']); ?></textarea><br />
+
+<input id="submit" type="submit" name="submit" value="<?php echo $lang->str( 'Encode' ); ?>" class="forminput" />
+<input type="hidden" name="task" value="encode" />
+</div>
+
+
+<div style="float: left;">
+<strong><?php echo $lang->str( "Select encoding" ); ?></strong><br />
+<select id="type" name="type" class="forminput">
+<?php
+	foreach ( $vars['encoders'] as $f ) {
+		$selected = ( $vars['type'] == $f ) ? "selected='selected'" : "";
+		echo "	<option value='$f' $selected>" . $lang->str( $f ) . "</option>\n";
+	}
+?>
+</select><br />
+<br />
+
+<strong><?php echo $lang->str( "Direction (only works on some encoders)" ); ?></strong><br />
+<select id="eord" name="eord" size="2" class="forminput">
+	<option value="1" <?php if ( $vars['eord'] == "1" ) echo "selected='selected'";?>><?php echo $lang->str( "Encode" ); ?></option>
+	<option value="0" <?php if ( $vars['eord'] != "1" ) echo "selected='selected'";?>><?php echo $lang->str( "Decode" ); ?></option>
+</select><br />
+<br />
+
+<strong><?php echo $lang->str("Encryption key"); ?></strong><br />
+<input type="text" name="key" size="40" value="<?php echo $vars['key']; ?>" />
+</div>
+
+</form>
+</div>
