@@ -1,3 +1,12 @@
 cryptool
+========
 
 A script to test different types of encryptions and text parsers.
+
+Demo: http://gardener.se/scripts/cryptool/cryptool.php
+
+License
+-------
+GNU General Public License v2
+
+
